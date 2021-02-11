@@ -11,9 +11,8 @@ data = {}
 # Standard required information in a bank account represented as a list
 standard_bank_info =["Name", "Adress", "Phone number", "Gov ID", "Account Type", "Amount"]
 
-# Creating a function that takes data from user and stores it
+# Creating a function that takes data from user and stores it for new customer
 def store_data():
-
     # We create a new account number using the customer input
     account_number = input("Enter your account number: ")
 
@@ -28,6 +27,11 @@ def store_data():
     print(hyphens)
     return 
 
+# Creating a function that ask an existing customer the options he'd like to choose
+def other_options():
+    print(hyphens)
+    customer_option = input("1. Check Balance \n2. Withdraw\n3. Deposit\nEnter choice: ")
+
 while True:
     # We will store into this list the input details from the client
     user_details = []
@@ -38,11 +42,13 @@ while True:
     # New customer
     if user_choice == 1 :
         store_data()
-    
+
     # Existing customer
     elif user_choice == 2 :
         account_number = input("Enter your account number: ")
         if account_number in data:
             print("Record found.")
+            # Showing options to the user
+            other_options()
         else:
             print("Record not found.")
