@@ -4,26 +4,28 @@
 bank_logo = " -------------------- \n --- Bank and Co. --- \n -------------------- \n "
 menu = "1) New customer \n 2) Existing customer \n 3) Exit program \n Enter your choice : "
 
-# Bank data
+# Bank data, used to store bank details
 data = {}
 
 # Standard required information in a bank account represented as a list
-standard_bank_info =["Name","Adress","Phone number","Gov ID", "Account Type","Amount"]
+standard_bank_info =["Name", "Adress", "Phone number", "Gov ID", "Account Type", "Amount"]
 
 
 while True:
+    # We will store into this list the input details from the client
+    user_details = []
 
-    # clearing the list every time we get an input
-    list2 =[]
-
-    # asking input from the user
-    user_choice=int(input(bank_logo + menu))
+    # Showing menu and asking for the user choice
+    user_choice = int(input(bank_logo + menu))
 
     # New customer
-    if user_choice == 1:
-        # customer chooses the account number
-        acc_num = input("Enter your account number: ")
+    if user_choice == 1 :
+        # We create a new account number using the customer input
+        account_number = input("Enter your account number: ")
 
-        # We loop over the list and prompt the user to give us the required information to open an account
+        # We loop over the standard banking info list and prompt the user to give us the required details to open an account and then add this information
         for i in standard_bank_info :
-            list2.append(input("Enter {i}"))
+            user_details.append(input(f"Enter {i}: "))
+
+        # We store the info into a dictionary using the zip function to map and combine standard bank info with user details
+        data[account_number] = dict(zip(standard_bank_info, user_details))
