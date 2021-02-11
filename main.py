@@ -30,7 +30,31 @@ def store_data():
 # Creating a function that ask an existing customer the options he'd like to choose
 def other_options():
     print(hyphens)
-    customer_option = input("1. Check Balance \n2. Withdraw\n3. Deposit\nEnter choice: ")
+    customer_option = int(input("1. Check Balance \n2. Withdraw\n3. Deposit\nEnter choice: "))
+    
+    # User wants to see the current balance
+    if customer_option == 1:
+        print("Current balance available: ", data[account_number]["Amount"])
+        print(hyphens)
+
+    # User wants to withdraw money
+    elif customer_option == 2:
+        withdraw = int(input("Enter amount to withdraw: "))
+        # Converting the amount in the dictionary into a number
+        data[account_number]["Amount"] = int(data[account_number]["Amount"])
+        data[account_number]["Amount"] -= withdraw
+        print("New balance is: ", data[account_number]["Amount"])
+        print(hyphens)
+
+    # User wants to deposit money
+    else:
+        deposit = int(input("Enter amount to deposit: "))
+        # Converting the amount in the dictionary into a number
+        data[account_number]["Amount"] = int(data[account_number]["Amount"])
+        data[account_number]["Amount"] += deposit
+        print("New balance is: ", data[account_number]["Amount"])
+        print(hyphens)
+
 
 while True:
     # We will store into this list the input details from the client
