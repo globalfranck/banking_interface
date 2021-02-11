@@ -39,19 +39,23 @@ def other_options():
 
     # User wants to withdraw money
     elif customer_option == 2:
-        withdraw = int(input("Enter amount to withdraw: "))
+        withdraw_amount = int(input("Enter amount to withdraw: "))
         # Converting the amount in the dictionary into a number
         data[account_number]["Amount"] = int(data[account_number]["Amount"])
-        data[account_number]["Amount"] -= withdraw
+        data[account_number]["Amount"] -= withdraw_amount
+        print(hyphens)
+        print("Withdraw successful")
         print("New balance is: ", data[account_number]["Amount"])
         print(hyphens)
 
     # User wants to deposit money
     else:
-        deposit = int(input("Enter amount to deposit: "))
+        deposit_amount = int(input("Enter amount to deposit: "))
         # Converting the amount in the dictionary into a number
         data[account_number]["Amount"] = int(data[account_number]["Amount"])
-        data[account_number]["Amount"] += deposit
+        data[account_number]["Amount"] += deposit_amount
+        print(hyphens)
+        print("Deposit successful")
         print("New balance is: ", data[account_number]["Amount"])
         print(hyphens)
 
@@ -76,3 +80,5 @@ while True:
             other_options()
         else:
             print("Record not found.")
+    else:
+        break
