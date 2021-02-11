@@ -38,3 +38,11 @@ while True:
     # New customer
     if user_choice == 1 :
         store_data()
+    
+    # Existing customer
+    elif user_choice == 2 :
+        account_number = input("Enter your account number: ")
+        if account_number in data:
+            print("Record found.")
+        else:
+            print("Record not found.")
